@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS — rebrand a client by editing this block only.
+   brand  = primary dark palette (trust, authority)
+   accent = action color (CTAs, highlights) — keep AA contrast:
+            white text on accent-600 must stay ≥ 4.5:1
+   ============================================================ */
+@theme {
+  --color-brand-50: #f4f7fa;
+  --color-brand-100: #e8eef4;
+  --color-brand-200: #c6d3e0;
+  --color-brand-300: #9fb3c8;
+  --color-brand-400: #6e8ba6;
+  --color-brand-500: #46688a;
+  --color-brand-600: #2e4e6e;
+  --color-brand-700: #1e3a57;
+  --color-brand-800: #142b42;
+  --color-brand-900: #0c1f33;
+  --color-brand-950: #081625;
+
+  --color-accent-50: #fff7ed;
+  --color-accent-100: #ffedd5;
+  --color-accent-200: #fed7aa;
+  --color-accent-300: #fdba74;
+  --color-accent-400: #fb923c;
+  --color-accent-500: #ea580c;
+  --color-accent-600: #c2410c;
+  --color-accent-700: #9a3412;
+  --color-accent-800: #7c2d12;
+  --color-accent-900: #632510;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-archivo), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white font-sans text-slate-600 antialiased;
+}
+
+::selection {
+  @apply bg-accent-200 text-brand-950;
+}
+
+/* Native accordion: rotate chevron when open */
+details[open] .accordion-chevron {
+  transform: rotate(180deg);
+}
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Availability pulse — the one permitted "always moving" element */
+@keyframes availability-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.6);
+  }
+}
+.availability-pulse {
+  animation: availability-pulse 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .availability-pulse {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Hide scrollbar on the review rail while keeping it scrollable */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
