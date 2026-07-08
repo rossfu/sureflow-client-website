@@ -40,4 +40,8 @@ export default function HomePage() {
       <BeforeAfterSection />
       <ReviewsSection reviews={[...reviews]} />
       <ServiceAreasGrid />
-      <FAQSection faqs
+      <FAQSection faqs={globalFaqs.slice(0, 6)} />
+      <FinalCTA />
+    </>
+  );
+}

@@ -49,3 +49,6 @@ export function StickyCallBar() {
           Get Help
         </Link>
       </div>
+    </div>
+  );
+}
