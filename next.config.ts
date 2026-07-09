@@ -1,13 +1,14 @@
 import type { NextConfig } from "next";
 
 /**
- * basePath — set only when this template is deployed under a URL subpath
- * (e.g. proxied at yoursite.com/clientwebsite instead of its own domain).
- * Leave NEXT_PUBLIC_BASE_PATH unset for a normal root-domain deployment.
+ * basePath — this deployment lives at sureflowleads.com/clientwebsite
+ * (proxied via that site's vercel.json rewrites), so it defaults to
+ * "/clientwebsite". Redeploying at a plain root domain for a future
+ * client: set NEXT_PUBLIC_BASE_PATH="" explicitly to clear it.
  * Components read the same value via lib/utils#withBasePath — keep both
  * in sync since next/image doesn't auto-prefix unoptimized local sources.
  */
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "/clientwebsite";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
