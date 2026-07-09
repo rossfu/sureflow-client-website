@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { BeforeAfterSlider } from "@/components/sections/BeforeAfterSlider";
+import { withBasePath } from "@/lib/utils";
 
 /** Visual proof of competence: the outcome, made vivid. */
 export function BeforeAfterSection() {
@@ -10,8 +11,8 @@ export function BeforeAfterSection() {
       <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="order-2 lg:order-1">
           <BeforeAfterSlider
-            beforeSrc="/images/before-1.svg"
-            afterSrc="/images/after-1.svg"
+            beforeSrc={withBasePath("/images/before-1.svg")}
+            afterSrc={withBasePath("/images/after-1.svg")}
             beforeAlt="Living room with standing water and saturated drywall before restoration"
             afterAlt="The same living room fully dried, repaired, and repainted after restoration"
           />
