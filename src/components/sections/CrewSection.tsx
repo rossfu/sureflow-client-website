@@ -5,13 +5,13 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { withBasePath } from "@/lib/utils";
 
-/** Faces build trust faster than paragraphs. */
+/** Faces (and branded trucks) build trust faster than paragraphs. */
 export function CrewSection() {
   return (
-    <section className="bg-brand-900 py-16 text-white sm:py-20 lg:py-24">
+    <section className="bg-gradient-to-b from-brand-900 to-brand-950 py-16 text-white sm:py-20 lg:py-24">
       <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <div className="grid grid-cols-2 gap-4">
-          <div className="relative col-span-2 aspect-[16/10] overflow-hidden rounded-2xl">
+        <div className="grid gap-4">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
             <Image
               src={withBasePath("/images/crew-cleanup.png")}
               alt="SureFlow Restoration crew removing water damage from a home"
@@ -19,18 +19,13 @@ export function CrewSection() {
               className="object-cover"
             />
           </div>
-          <div className="relative col-span-2 aspect-[16/6] overflow-hidden rounded-2xl sm:col-span-1">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
             <Image
-              src={withBasePath("/images/technician-portrait.png")}
-              alt="A SureFlow Restoration technician"
+              src={withBasePath("/images/hero-van-crew.png")}
+              alt="A SureFlow Restoration branded response van on-site"
               fill
-              className="object-cover object-top"
+              className="object-cover"
             />
-          </div>
-          <div className="relative col-span-2 flex items-center justify-center rounded-2xl bg-accent-600 p-6 text-center sm:col-span-1">
-            <p className="font-display text-lg font-bold">
-              {site.rating.value}★ from {site.rating.count}+ homeowners
-            </p>
           </div>
         </div>
         <div>
@@ -39,7 +34,7 @@ export function CrewSection() {
             Our crew shows up and gets to work.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-white/75">
-            Every tech is trained, background-checked, and ready 24/7. No subcontractors. No guesswork.
+            Trained, background-checked, our own techs — no subcontractors, no guesswork.
           </p>
           <div className="mt-8">
             <Button href={`tel:${site.phoneE164}`} size="lg" dataCta="crew-section-call">

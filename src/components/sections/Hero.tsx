@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Phone, MessageSquare, Timer, ClipboardCheck, FileCheck, BadgeCheck } from "lucide-react";
+import { Phone, MessageSquare, Timer, ClipboardCheck, FileCheck, BadgeCheck, ScanSearch } from "lucide-react";
 import { site } from "@/config/site";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -63,38 +63,55 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Response promise card — the anxiety checklist, answered */}
+        {/* Response promise card — the anxiety checklist, answered in full */}
         <aside className="hidden rounded-2xl border border-white/10 bg-white/10 p-8 backdrop-blur lg:block">
           <h2 className="font-display text-sm font-semibold uppercase tracking-widest text-accent-400">
-            What You Get
+            What Happens When You Call
           </h2>
           <ul className="mt-6 space-y-5">
             <li className="flex gap-4">
               <Timer aria-hidden="true" className="h-6 w-6 shrink-0 text-accent-500" />
               <div>
-                <p className="font-semibold text-white">Arrive in {site.responseTimeMinutes} minutes</p>
-                <p className="mt-0.5 text-sm text-white/70">Day or night.</p>
+                <p className="font-semibold text-white">A crew arrives in {site.responseTimeMinutes} minutes</p>
+                <p className="mt-0.5 text-sm text-white/70">
+                  Day, night, weekends, holidays — a real person dispatches your crew while you're on the phone.
+                </p>
               </div>
             </li>
             <li className="flex gap-4">
               <ClipboardCheck aria-hidden="true" className="h-6 w-6 shrink-0 text-accent-500" />
               <div>
-                <p className="font-semibold text-white">Free written estimate</p>
-                <p className="mt-0.5 text-sm text-white/70">Before we start any work.</p>
+                <p className="font-semibold text-white">A written estimate before any work starts</p>
+                <p className="mt-0.5 text-sm text-white/70">
+                  You approve the price first. No surprise invoices after the fact.
+                </p>
               </div>
             </li>
             <li className="flex gap-4">
               <FileCheck aria-hidden="true" className="h-6 w-6 shrink-0 text-accent-500" />
               <div>
-                <p className="font-semibold text-white">We bill your insurance</p>
-                <p className="mt-0.5 text-sm text-white/70">You don't deal with the adjuster.</p>
+                <p className="font-semibold text-white">We bill your insurance directly</p>
+                <p className="mt-0.5 text-sm text-white/70">
+                  Photos and paperwork go straight to your adjuster. You deal with us, not them.
+                </p>
+              </div>
+            </li>
+            <li className="flex gap-4">
+              <ScanSearch aria-hidden="true" className="h-6 w-6 shrink-0 text-accent-500" />
+              <div>
+                <p className="font-semibold text-white">Hidden damage, found with meters</p>
+                <p className="mt-0.5 text-sm text-white/70">
+                  We check behind walls and floors so water you can't see doesn't become mold later.
+                </p>
               </div>
             </li>
             <li className="flex gap-4">
               <BadgeCheck aria-hidden="true" className="h-6 w-6 shrink-0 text-accent-500" />
               <div>
-                <p className="font-semibold text-white">Certified crew</p>
-                <p className="mt-0.5 text-sm text-white/70">Trained and background-checked.</p>
+                <p className="font-semibold text-white">A certified, background-checked crew</p>
+                <p className="mt-0.5 text-sm text-white/70">
+                  Our own techs, never subcontractors — vetted before they enter your home.
+                </p>
               </div>
             </li>
           </ul>

@@ -8,7 +8,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 /** Local relevance + the internal-linking hub for city pages. */
 export function ServiceAreasGrid() {
   return (
-    <section className="bg-slate-50 py-16 sm:py-20 lg:py-24">
+    <section className="bg-brand-50 py-16 sm:py-20 lg:py-24">
       <Container>
         <SectionHeader
           eyebrow="Where We Work"

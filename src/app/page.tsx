@@ -6,10 +6,8 @@ import { buildMetadata } from "@/lib/seo";
 import { Hero } from "@/components/sections/Hero";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
-import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
-import { InsuranceCallout } from "@/components/sections/InsuranceCallout";
+import { HowItWorksBand } from "@/components/sections/HowItWorksBand";
 import { StatsBand } from "@/components/sections/StatsBand";
-import { WhyUs } from "@/components/sections/WhyUs";
 import { CrewSection } from "@/components/sections/CrewSection";
 import { BeforeAfterSection } from "@/components/sections/BeforeAfterSection";
 import { ReviewsSection } from "@/components/sections/ReviewsSection";
@@ -27,17 +25,16 @@ export const metadata: Metadata = buildMetadata({
 /**
  * Section order = conversion psychology (docs/02-conversion-strategy.md):
  * act now → validate → identify → de-risk → prove → localize → close.
+ * Kept intentionally short: every section earns its place or it's cut.
  */
 export default function HomePage() {
   return (
     <>
       <Hero />
       <TrustBar />
-      <ServicesGrid />
-      <ProcessTimeline />
-      <InsuranceCallout />
       <StatsBand />
-      <WhyUs />
+      <ServicesGrid />
+      <HowItWorksBand />
       <CrewSection />
       <BeforeAfterSection />
       <ReviewsSection reviews={[...reviews]} />

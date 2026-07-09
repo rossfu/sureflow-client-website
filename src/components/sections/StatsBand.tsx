@@ -4,7 +4,10 @@ import { Container } from "@/components/ui/Container";
 /** Quantified authority — specific numbers beat adjectives. */
 export function StatsBand() {
   return (
-    <section aria-label="Company statistics" className="bg-brand-950 py-14 text-white sm:py-16">
+    <section
+      aria-label="Company statistics"
+      className="bg-gradient-to-r from-brand-950 via-brand-900 to-brand-950 py-14 text-white sm:py-16"
+    >
       <Container className="grid grid-cols-2 gap-10 lg:grid-cols-4">
         {site.stats.map((stat) => (
           <div key={stat.label} className="text-center">

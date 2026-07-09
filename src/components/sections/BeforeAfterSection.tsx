@@ -6,7 +6,7 @@ import { BeforeAfterSlider } from "@/components/sections/BeforeAfterSlider";
 /** Visual proof of competence: the outcome, made vivid. */
 export function BeforeAfterSection() {
   return (
-    <section className="bg-slate-50 py-16 sm:py-20 lg:py-24">
+    <section className="bg-gradient-to-b from-white to-accent-50 py-16 sm:py-20 lg:py-24">
       <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="order-2 lg:order-1">
           <BeforeAfterSlider
@@ -21,15 +21,12 @@ export function BeforeAfterSection() {
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-900 sm:text-4xl">
             Drag the slider. See for yourself.
           </h2>
-          <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            We photograph every job, start to finish. See real results from homes across{" "}
-            {`Greater Austin`}.
-          </p>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">Every job, photographed start to finish.</p>
           <Link
             href="/gallery"
             className="mt-6 inline-flex items-center gap-1.5 font-semibold text-accent-600 transition-colors duration-200 hover:text-accent-700"
           >
-            See more before & after photos
+            See more photos
             <ArrowRight aria-hidden="true" className="h-4 w-4" />
           </Link>
         </div>

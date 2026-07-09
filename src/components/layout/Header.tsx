@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Phone, ChevronDown, MapPin } from "lucide-react";
 import { site } from "@/config/site";
 import { services } from "@/config/services";
@@ -7,8 +6,8 @@ import { cities } from "@/config/cities";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ServiceIcon } from "@/components/ui/ServiceIcon";
+import { Logo } from "@/components/ui/Logo";
 import { MobileMenu } from "@/components/layout/MobileMenu";
-import { withBasePath } from "@/lib/utils";
 
 export const navLinks = [
   { label: "Services", href: "/services" },
@@ -23,12 +22,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85">
       <Container className="flex h-16 items-center justify-between gap-4 lg:h-20">
-        <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name} — home`}>
-          <Image src={withBasePath("/images/logo-mark.png")} alt="" width={40} height={40} className="h-10 w-10 rounded-lg" />
-          <span className="font-display text-lg font-bold leading-tight tracking-tight text-brand-900">
-            {site.name}
-          </span>
-        </Link>
+        <Logo />
 
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
           {/* Services — hover dropdown */}
