@@ -63,7 +63,7 @@ export const posts: Post[] = [
         heading: "6. Call for professional drying — even if it 'looks' minor",
         paragraphs: [
           "Water you can see is the smaller problem. Water inside walls, under flooring, and in insulation is what turns a plumbing repair into a mold remediation three weeks later. Professional crews measure moisture instead of guessing.",
-          "Our water damage restoration team answers 24/7 and averages 60 minutes to your door across Greater Austin — and sudden pipe failures are covered by most homeowner's policies.",
+          "Our water damage restoration team answers 24/7 and averages 60 minutes to your door across Greater Houston — and sudden pipe failures are covered by most homeowner's policies.",
         ],
       },
     ],

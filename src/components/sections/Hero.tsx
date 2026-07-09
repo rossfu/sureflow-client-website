@@ -33,11 +33,11 @@ export function Hero() {
               <span className="availability-pulse absolute inline-flex h-full w-full rounded-full bg-emerald-400" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
             </span>
-            Crews ready now in Houston
+            Crews ready now in {site.address.city}
           </p>
 
           <h1 className="mt-6 font-display text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-            The Best Cleaning and Restoration Team in <span className="text-accent-500">Houston</span>
+            The Best Cleaning and Restoration Team in <span className="text-accent-500">{site.address.city}</span>
           </h1>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">

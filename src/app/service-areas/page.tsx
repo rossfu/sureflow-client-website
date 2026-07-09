@@ -8,7 +8,7 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = buildMetadata({
   title: `Service Areas — Restoration Crews Across ${site.serviceRegion}`,
-  description: `${site.name} serves ${site.serviceRegion} with staged emergency crews and a ${site.responseTimeMinutes}-minute average response: Austin, Round Rock, Cedar Park, Georgetown, Pflugerville, Leander.`,
+  description: `${site.name} serves ${site.serviceRegion} with staged emergency crews and a ${site.responseTimeMinutes}-minute average response: Houston, Katy, Sugar Land, The Woodlands, Pearland, Cypress.`,
   path: "/service-areas",
 });
 

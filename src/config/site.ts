@@ -11,28 +11,28 @@ export const site = {
   legalName: "SureFlow Restoration LLC",
   tagline: "Water. Fire. Mold. Fixed fast.",
   description:
-    "24/7 emergency water, fire, and mold cleanup in Greater Austin, TX. We arrive in 60 minutes. Licensed, certified, and we bill your insurance directly.",
+    "24/7 emergency water, fire, and mold cleanup in Greater Houston, TX. We arrive in 60 minutes. Licensed, certified, and we bill your insurance directly.",
 
   /** Canonical URL — set NEXT_PUBLIC_SITE_URL in production */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sureflowrestoration.com",
 
-  phone: "(512) 555-0134",
+  phone: "(713) 555-0134",
   /** E.164 for tel: links and schema */
-  phoneE164: "+15125550134",
+  phoneE164: "+17135550134",
   email: "help@sureflowrestoration.com",
 
   address: {
-    street: "4501 Industrial Oaks Blvd, Suite 200",
-    city: "Austin",
+    street: "4006 Dumbarton St",
+    city: "Houston",
     state: "TX",
-    zip: "78735",
+    zip: "77025",
     country: "US",
   },
-  geo: { lat: 30.2672, lng: -97.7431 },
+  geo: { lat: 29.7075, lng: -95.4194 },
 
   hoursLabel: "Open 24/7 — nights, weekends, holidays",
   responseTimeMinutes: 60,
-  serviceRegion: "Greater Austin, TX",
+  serviceRegion: "Greater Houston, TX",
   foundedYear: 2009,
 
   /** Quantified authority — shown in StatsBand and hero promise card */

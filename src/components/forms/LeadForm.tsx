@@ -114,7 +114,7 @@ export function LeadForm() {
             aria-invalid={Boolean(errors.city)}
             aria-describedby={errors.city ? "city-error" : undefined}
             className={cn(inputClasses, errors.city && "border-red-400")}
-            placeholder="Austin"
+            placeholder="Houston"
           />
         </Field>
       </div>

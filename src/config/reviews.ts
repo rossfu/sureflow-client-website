@@ -17,8 +17,8 @@ export interface Review {
 export const reviews: Review[] = [
   {
     name: "Rachel M.",
-    location: "Hyde Park, Austin",
-    citySlug: "austin-tx",
+    location: "West University, Houston",
+    citySlug: "houston-tx",
     serviceSlug: "water-damage-restoration",
     rating: 5,
     date: "2026-03",
@@ -26,8 +26,8 @@ export const reviews: Review[] = [
   },
   {
     name: "David & Priya K.",
-    location: "Forest Creek, Round Rock",
-    citySlug: "round-rock-tx",
+    location: "Cinco Ranch, Katy",
+    citySlug: "katy-tx",
     serviceSlug: "water-damage-restoration",
     rating: 5,
     date: "2026-01",
@@ -35,8 +35,8 @@ export const reviews: Review[] = [
   },
   {
     name: "Tom H.",
-    location: "Buttercup Creek, Cedar Park",
-    citySlug: "cedar-park-tx",
+    location: "Sterling Ridge, The Woodlands",
+    citySlug: "the-woodlands-tx",
     serviceSlug: "storm-damage-restoration",
     rating: 5,
     date: "2025-11",
@@ -44,8 +44,8 @@ export const reviews: Review[] = [
   },
   {
     name: "Angela R.",
-    location: "Sun City, Georgetown",
-    citySlug: "georgetown-tx",
+    location: "Telfair, Sugar Land",
+    citySlug: "sugar-land-tx",
     serviceSlug: "mold-remediation",
     rating: 5,
     date: "2026-02",
@@ -53,8 +53,8 @@ export const reviews: Review[] = [
   },
   {
     name: "Marcus T.",
-    location: "Mueller, Austin",
-    citySlug: "austin-tx",
+    location: "The Heights, Houston",
+    citySlug: "houston-tx",
     serviceSlug: "fire-damage-restoration",
     rating: 5,
     date: "2025-09",
@@ -62,8 +62,8 @@ export const reviews: Review[] = [
   },
   {
     name: "Jennifer L.",
-    location: "Falcon Pointe, Pflugerville",
-    citySlug: "pflugerville-tx",
+    location: "Shadow Creek Ranch, Pearland",
+    citySlug: "pearland-tx",
     serviceSlug: "sewage-cleanup",
     rating: 5,
     date: "2026-04",
@@ -71,8 +71,8 @@ export const reviews: Review[] = [
   },
   {
     name: "Robert C.",
-    location: "Crystal Falls, Leander",
-    citySlug: "leander-tx",
+    location: "Bridgeland, Cypress",
+    citySlug: "cypress-tx",
     serviceSlug: "water-damage-restoration",
     rating: 5,
     date: "2025-12",
@@ -80,8 +80,8 @@ export const reviews: Review[] = [
   },
   {
     name: "Sandra W.",
-    location: "Old Town, Georgetown",
-    citySlug: "georgetown-tx",
+    location: "First Colony, Sugar Land",
+    citySlug: "sugar-land-tx",
     serviceSlug: "biohazard-cleanup",
     rating: 5,
     date: "2025-10",
@@ -89,8 +89,8 @@ export const reviews: Review[] = [
   },
   {
     name: "Luis & Carmen O.",
-    location: "East Austin",
-    citySlug: "austin-tx",
+    location: "Meyerland, Houston",
+    citySlug: "houston-tx",
     serviceSlug: "storm-damage-restoration",
     rating: 5,
     date: "2026-05",
