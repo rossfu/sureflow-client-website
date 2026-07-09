@@ -1,7 +1,9 @@
+import Image from "next/image";
 import { Phone, MessageSquare } from "lucide-react";
 import { site } from "@/config/site";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { withBasePath } from "@/lib/utils";
 
 interface FinalCTAProps {
   title?: string;
@@ -15,6 +17,16 @@ export function FinalCTA({
 }: FinalCTAProps) {
   return (
     <section className="relative overflow-hidden bg-brand-950 py-16 text-white sm:py-20 lg:py-24">
+      <Image
+        src={withBasePath("/images/crew-dusk-arrival.png")}
+        alt=""
+        fill
+        className="object-cover opacity-30"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/90 to-brand-950/70"
+      />
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-[radial-gradient(50rem_25rem_at_50%_120%,rgba(194,65,12,0.25),transparent)]"
