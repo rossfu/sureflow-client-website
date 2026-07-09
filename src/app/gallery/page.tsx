@@ -19,8 +19,8 @@ export default function GalleryPage() {
           { name: "Home", path: "/" },
           { name: "Gallery", path: "/gallery" },
         ]}
-        title="Before and after — drag the sliders yourself"
-        intro="Every project is photographed start to finish, partly for the insurance file and partly because this page makes a better argument than any headline could. These are real local jobs, not stock photos."
+        title="Drag the sliders. See the work."
+        intro="Real local jobs. Every one photographed start to finish."
       />
       <GalleryGrid />
       <FinalCTA

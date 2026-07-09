@@ -7,11 +7,8 @@ import { globalFaqs } from "@/config/faqs";
 import { site } from "@/config/site";
 import { buildMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { MiniHero } from "@/components/sections/MiniHero";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
-import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
-import { InsuranceCallout } from "@/components/sections/InsuranceCallout";
 import { ReviewsSection } from "@/components/sections/ReviewsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { FinalCTA } from "@/components/sections/FinalCTA";
@@ -32,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!city) return {};
   return buildMetadata({
     title: `Restoration Company in ${city.label} — Water, Fire & Mold, 24/7`,
-    description: `${site.name} serves ${city.label} with 24/7 water, fire, mold, storm, sewage & biohazard restoration. ${city.responseNote} Free estimates, insurance billed direct.`,
+    description: `${site.name} serves ${city.label} with 24/7 water, fire, mold, storm, sewage & biohazard restoration. Free estimates, insurance billed direct.`,
     path: `/service-areas/${city.slug}`,
   });
 }
@@ -53,8 +50,8 @@ export default async function CityPage({ params }: { params: Promise<Params> }) 
           { name: "Service Areas", path: "/service-areas" },
           { name: city.label, path: `/service-areas/${city.slug}` },
         ]}
-        title={`Restoration services in ${city.label}`}
-        intro={`${city.localNote} ${city.responseNote}`}
+        title={city.label}
+        intro={city.localNote}
       />
 
       {/* Neighborhood chips — local proof, not decoration */}
@@ -78,13 +75,10 @@ export default async function CityPage({ params }: { params: Promise<Params> }) 
         citySlug={city.slug}
         cityName={city.name}
         eyebrow={`Services in ${city.name}`}
-        title={`Every emergency we handle in ${city.label}`}
-        lede={`Tap your situation for local details, response notes, and a "do this right now" checklist.`}
+        title="Pick your situation"
       />
-      <ProcessTimeline />
-      <InsuranceCallout />
       <ReviewsSection reviews={displayReviews} title={`What ${city.name} homeowners say`} />
-      <FAQSection faqs={globalFaqs.slice(0, 5)} title={`Common questions from ${city.name}`} />
+      <FAQSection faqs={globalFaqs.slice(0, 5)} title={`Questions from ${city.name}`} lede="" />
       <FinalCTA title={`Need help in ${city.name} right now?`} />
     </>
   );

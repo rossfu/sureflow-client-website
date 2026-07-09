@@ -3,8 +3,6 @@ import { site } from "@/config/site";
 import { buildMetadata } from "@/lib/seo";
 import { MiniHero } from "@/components/sections/MiniHero";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
-import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
-import { InsuranceCallout } from "@/components/sections/InsuranceCallout";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = buildMetadata({
@@ -21,16 +19,10 @@ export default function ServicesPage() {
           { name: "Home", path: "/" },
           { name: "Services", path: "/services" },
         ]}
-        title="One certified team for every kind of property damage"
-        intro={`Water, fire, mold, storm, sewage, biohazard — different emergencies, same standard: on-site in ${site.responseTimeMinutes} minutes, documented for your insurance, restored by IICRC-certified technicians.`}
+        title="One team. Every kind of damage."
+        intro={`On-site in ${site.responseTimeMinutes} minutes. Insurance billed direct.`}
       />
-      <ServicesGrid
-        eyebrow="All Services"
-        title="Choose your situation"
-        lede="Each service page includes a 'do this right now' checklist — useful before you've even decided to call."
-      />
-      <ProcessTimeline />
-      <InsuranceCallout />
+      <ServicesGrid eyebrow="All Services" title="Pick your situation" />
       <FinalCTA />
     </>
   );

@@ -11,11 +11,7 @@ const steps = [
   { icon: Wrench, label: "We fix it, insurance billed", color: "bg-violet-500" },
 ];
 
-/**
- * Homepage-only: replaces the full ProcessTimeline + InsuranceCallout pair
- * (still used in full on /insurance and /services) with one compact,
- * colorful band. Action-first, not an explainer.
- */
+/** Site-wide "how it works" summary: one compact, colorful band. Action-first, not an explainer. */
 export function HowItWorksBand() {
   return (
     <section className="relative overflow-hidden bg-brand-950 py-16 text-white sm:py-20">

@@ -33,18 +33,12 @@ export function Hero() {
               <span className="availability-pulse absolute inline-flex h-full w-full rounded-full bg-emerald-400" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
             </span>
-            Crews ready now in {site.address.city}
+            Crews ready now in Houston
           </p>
 
           <h1 className="mt-6 font-display text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-            Flooded. Burned. Moldy?
-            <br />
-            <span className="text-accent-500">We fix it — fast.</span>
+            The Best Cleaning and Restoration Team in <span className="text-accent-500">Houston</span>
           </h1>
-
-          <p className="mt-6 max-w-xl text-xl leading-relaxed text-white/85 sm:text-2xl">
-            A real person answers. A crew shows up in {site.responseTimeMinutes} minutes. We bill your insurance — not you.
-          </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button href={`tel:${site.phoneE164}`} size="lg" dataCta="hero-call" className="text-xl">

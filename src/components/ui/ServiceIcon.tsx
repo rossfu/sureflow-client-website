@@ -18,6 +18,16 @@ const iconMap: Record<Service["icon"], LucideIcon> = {
   biohazard: Biohazard,
 };
 
+/** One accent color per service — used anywhere services are listed, for quick visual scanning. */
+export const serviceColor: Record<Service["icon"], string> = {
+  droplets: "bg-sky-600",
+  flame: "bg-orange-600",
+  microscope: "bg-emerald-600",
+  "cloud-lightning": "bg-violet-600",
+  waves: "bg-cyan-700",
+  biohazard: "bg-rose-600",
+};
+
 export function ServiceIcon({
   icon,
   className = "h-6 w-6",

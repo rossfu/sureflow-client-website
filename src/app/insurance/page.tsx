@@ -5,55 +5,39 @@ import { buildMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { MiniHero } from "@/components/sections/MiniHero";
-import { InsuranceCallout } from "@/components/sections/InsuranceCallout";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = buildMetadata({
   title: "Insurance Claims Help — We Bill Your Insurer Directly",
-  description: `${site.name} documents your loss, prepares adjuster-standard estimates, and bills your insurance company directly. Here's how the claims process actually works.`,
+  description: `${site.name} documents your loss and bills your insurance company directly.`,
   path: "/insurance",
 });
 
 const claimSteps = [
-  {
-    title: "You report the loss",
-    body: "One call to your insurer's claim line gets you a claim number. That's all you need before mitigation starts — policies require you to prevent further damage, and our emergency work counts.",
-  },
-  {
-    title: "We document everything",
-    body: "Photos of every affected room and item, moisture readings mapped and logged daily, and a cause-of-loss report. This file is what your claim gets paid on.",
-  },
-  {
-    title: "We scope it in the adjuster's language",
-    body: "Our estimates are written in Xactimate — the same software nearly every carrier uses. When both sides price from the same book, approvals move faster and disputes shrink.",
-  },
-  {
-    title: "We meet the adjuster on-site",
-    body: "You don't have to translate between a contractor and an insurance company. We walk the loss with your adjuster and answer the technical questions directly.",
-  },
-  {
-    title: "The insurer pays us — you pay your deductible",
-    body: "For covered losses we bill the carrier directly. No fronting five figures, no waiting on reimbursement checks.",
-  },
+  "You call, we open the claim number with you.",
+  "We document everything — photos, moisture readings, cause of loss.",
+  "We write the estimate in the format your adjuster expects.",
+  "We meet your adjuster on-site. You don't have to.",
+  "The insurer pays us directly. You pay your deductible.",
 ];
 
 const insuranceFaqs = [
   {
-    q: "Do I have to use the company my insurance recommends?",
-    a: "No. In Texas — as in most states — you have the legal right to choose your own restoration contractor. Insurer 'preferred vendors' work under volume agreements with the carrier; we work for you. Either way, the carrier pays covered costs at fair market rates.",
+    q: "Do I have to use my insurer's recommended contractor?",
+    a: "No. You can choose your own restoration company. The carrier still pays covered costs either way.",
   },
   {
     q: "Will filing a claim raise my rates?",
-    a: "It can affect renewal pricing, which is why for smaller losses we give you an honest repair number first — sometimes paying out of pocket beats filing. We'll tell you what we'd do in your position, then you decide.",
+    a: "It can. For smaller losses, we'll give you a repair price first so you can decide if filing makes sense.",
   },
   {
     q: "What if my claim is denied or underpaid?",
-    a: "Our documentation — photos, moisture logs, itemized scope — is the evidence a supplement or appeal is built on. We regularly prepare supplements when adjusters miss hidden damage, and it's resolved between professionals, not in arguments.",
+    a: "Our photos and documentation are the evidence for an appeal. We prepare supplements when adjusters miss damage.",
   },
   {
-    q: "What's typically covered vs. not?",
-    a: "Generally covered: sudden events — burst pipes, appliance failures, fire, storm damage, and resulting mold. Generally not: long-term neglect, gradual leaks, and outside flooding (that's separate flood insurance). The cause determines coverage, and documenting cause is our job.",
+    q: "What's usually covered?",
+    a: "Sudden events — burst pipes, fire, storm damage — are usually covered. Neglect and outside flooding usually aren't.",
   },
 ];
 
@@ -65,31 +49,26 @@ export default function InsurancePage() {
           { name: "Home", path: "/" },
           { name: "Insurance", path: "/insurance" },
         ]}
-        title="The insurance claim, handled like it's our job — because it is"
-        intro="Most people file one property claim in their life; we handle them every week. Here's exactly how it works when you call us first, and why the paperwork stops being your problem."
+        title="We handle your claim. Not you."
+        intro="We document the loss, deal with your adjuster, and bill the insurer directly."
       />
 
       <section className="bg-white py-16 sm:py-20 lg:py-24">
         <Container className="mx-auto max-w-3xl">
-          <SectionHeader
-            eyebrow="The Claims Process"
-            title="Five steps, none of them yours to worry about"
-            align="left"
-          />
-          <ol className="mt-12 space-y-8 border-l-2 border-brand-100 pl-8">
+          <SectionHeader eyebrow="The Process" title="Five steps. All ours." align="left" />
+          <ol className="mt-10 space-y-5">
             {claimSteps.map((step, i) => (
-              <li key={step.title} className="relative">
-                <span className="absolute -left-[2.85rem] flex h-9 w-9 items-center justify-center rounded-full bg-brand-900 font-display text-sm font-bold text-accent-500">
+              <li key={step} className="flex gap-4">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-900 font-display text-sm font-bold text-accent-500">
                   {i + 1}
                 </span>
-                <h3 className="font-display text-xl font-bold text-brand-900">{step.title}</h3>
-                <p className="mt-2 leading-relaxed text-slate-600">{step.body}</p>
+                <p className="pt-1.5 font-medium text-brand-900">{step}</p>
               </li>
             ))}
           </ol>
 
-          <div className="mt-14 rounded-2xl bg-brand-50 p-8">
-            <h3 className="font-display text-lg font-bold text-brand-900">Carriers we work with weekly</h3>
+          <div className="mt-12 rounded-2xl bg-brand-50 p-8">
+            <h3 className="font-display text-lg font-bold text-brand-900">Carriers we bill weekly</h3>
             <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
               {site.insurers.map((carrier) => (
                 <li key={carrier} className="flex items-center gap-2 text-sm font-medium text-slate-700">
@@ -98,17 +77,13 @@ export default function InsurancePage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-sm text-slate-500">…and every other carrier. If they write property policies, we've billed them.</p>
+            <p className="mt-4 text-sm text-slate-500">— and every other carrier that writes property policies.</p>
           </div>
         </Container>
       </section>
 
-      <InsuranceCallout />
-      <FAQSection faqs={insuranceFaqs} title="Insurance questions, answered honestly" />
-      <FinalCTA
-        title="Start the claim right — call before you file."
-        lede="Two minutes on the phone now can save weeks of claim friction later. We'll tell you what to say, what to photograph, and whether filing even makes sense."
-      />
+      <FAQSection faqs={insuranceFaqs} title="Insurance questions" lede="" />
+      <FinalCTA title="Call before you file. It helps." lede="" />
     </>
   );
 }

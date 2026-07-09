@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Zap } from "lucide-react";
 import { services, getService } from "@/config/services";
 import { cities } from "@/config/cities";
 import { reviewsForService, reviews } from "@/config/reviews";
@@ -10,11 +10,9 @@ import { serviceSchema } from "@/lib/schema";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { ServiceIcon } from "@/components/ui/ServiceIcon";
+import { ServiceIcon, serviceColor } from "@/components/ui/ServiceIcon";
 import { MiniHero } from "@/components/sections/MiniHero";
 import { EmergencySteps } from "@/components/sections/EmergencySteps";
-import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
-import { InsuranceCallout } from "@/components/sections/InsuranceCallout";
 import { ReviewsSection } from "@/components/sections/ReviewsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { FinalCTA } from "@/components/sections/FinalCTA";
@@ -47,6 +45,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
 
   const serviceReviews = reviewsForService(service.slug);
   const displayReviews = serviceReviews.length >= 2 ? serviceReviews : [...reviews];
+  const color = serviceColor[service.icon];
 
   return (
     <>
@@ -66,11 +65,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
       {/* What we handle */}
       <section className="bg-slate-50 py-16 sm:py-20">
         <Container>
-          <SectionHeader
-            eyebrow="What We Handle"
-            title={`${service.shortName} situations we restore`}
-            lede="If your situation isn't listed, call anyway — these are the common cases, not the limits."
-          />
+          <SectionHeader eyebrow="What We Handle" title={`${service.shortName} — every case`} />
           <ul className="mx-auto mt-10 grid max-w-4xl gap-3 sm:grid-cols-2">
             {service.damageTypes.map((type) => (
               <li
@@ -85,34 +80,26 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
         </Container>
       </section>
 
-      <ProcessTimeline />
-
-      {/* Why timing matters — educational urgency, no panic */}
-      <section className="bg-brand-950 py-16 text-white sm:py-20">
-        <Container className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent-400">Why Speed Matters</p>
-          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            {service.whyTiming.title}
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-white/75">{service.whyTiming.body}</p>
+      {/* Why timing matters — one bold stat callout, not a lecture */}
+      <section className={`relative overflow-hidden py-14 text-white sm:py-16 ${color}`}>
+        <Container className="relative flex flex-wrap items-center gap-6 sm:gap-10">
+          <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/15">
+            <Zap aria-hidden="true" className="h-8 w-8" />
+          </span>
+          <div>
+            <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl">{service.whyTiming.title}</h2>
+            <p className="mt-2 max-w-2xl text-white/90">{service.whyTiming.body}</p>
+          </div>
         </Container>
       </section>
 
-      <InsuranceCallout />
-      <ReviewsSection reviews={displayReviews} title={`${service.shortName} results, in their words`} />
-      <FAQSection
-        faqs={[...service.faqs]}
-        title={`${service.shortName} questions, answered`}
-        lede="Asked on almost every call — answered here the same way we'd answer at your door."
-      />
+      <ReviewsSection reviews={displayReviews} title={`${service.shortName} results`} />
+      <FAQSection faqs={[...service.faqs]} title={`${service.shortName} questions`} lede="" />
 
       {/* City links: internal linking + local relevance */}
       <section className="bg-white py-16 sm:py-20">
         <Container>
-          <SectionHeader
-            eyebrow="Where We Provide This Service"
-            title={`${service.shortName} crews across the metro`}
-          />
+          <SectionHeader eyebrow="Where We Work" title="Find your city" />
           <ul className="mx-auto mt-10 grid max-w-4xl gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {cities.map((city) => (
               <li key={city.slug}>
@@ -120,7 +107,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
                   href={`/services/${service.slug}/${city.slug}`}
                   className="group flex items-center justify-between rounded-xl border border-slate-200 bg-white px-5 py-4 font-medium text-brand-900 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm"
                 >
-                  {service.shortName} in {city.label}
+                  {city.label}
                   <ArrowRight aria-hidden="true" className="h-4 w-4 text-slate-300 transition-colors duration-200 group-hover:text-accent-600" />
                 </Link>
               </li>
@@ -140,13 +127,10 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
                     href={`/services/${rel.slug}`}
                     className="group flex items-center gap-4 rounded-xl border border-slate-200 p-5 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm"
                   >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-900 text-accent-500">
+                    <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-white ${serviceColor[rel.icon]}`}>
                       <ServiceIcon icon={rel.icon} className="h-5 w-5" />
                     </span>
-                    <span>
-                      <span className="block font-display font-bold text-brand-900">{rel.name}</span>
-                      <span className="block text-sm text-slate-500">Learn more →</span>
-                    </span>
+                    <span className="font-display font-bold text-brand-900">{rel.shortName}</span>
                   </Link>
                 );
               })}
@@ -155,9 +139,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
         </Container>
       </section>
 
-      <FinalCTA
-        title={`${service.shortName} emergency? We're already awake.`}
-      />
+      <FinalCTA title={`${service.shortName} emergency? We're already awake.`} />
     </>
   );
 }

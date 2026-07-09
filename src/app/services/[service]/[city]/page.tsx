@@ -11,10 +11,9 @@ import { serviceSchema } from "@/lib/schema";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { serviceColor } from "@/components/ui/ServiceIcon";
 import { MiniHero } from "@/components/sections/MiniHero";
 import { EmergencySteps } from "@/components/sections/EmergencySteps";
-import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
-import { InsuranceCallout } from "@/components/sections/InsuranceCallout";
 import { ReviewsSection } from "@/components/sections/ReviewsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { FinalCTA } from "@/components/sections/FinalCTA";
@@ -38,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!service || !city) return {};
   return buildMetadata({
     title: `${service.name} in ${city.label} — 24/7 Emergency Response`,
-    description: `${service.shortName} emergency? ${site.name} serves ${city.label} 24/7 with IICRC-certified crews, free estimates, and direct insurance billing. ${city.responseNote}`,
+    description: `${service.shortName} emergency? ${site.name} serves ${city.label} 24/7 with certified crews, free estimates, and direct insurance billing.`,
     path: `/services/${service.slug}/${city.slug}`,
   });
 }
@@ -52,6 +51,7 @@ export default async function ServiceCityPage({ params }: { params: Promise<Para
   const cityReviews = reviewsForCity(city.slug);
   const displayReviews = cityReviews.length >= 2 ? cityReviews : [...reviews];
   const siblingCities = cities.filter((c) => c.slug !== city.slug);
+  const color = serviceColor[service.icon];
 
   return (
     <>
@@ -64,26 +64,23 @@ export default async function ServiceCityPage({ params }: { params: Promise<Para
           { name: city.label, path: `/services/${service.slug}/${city.slug}` },
         ]}
         title={`${service.name} in ${city.label}`}
-        intro={`${city.localNote} ${city.responseNote}`}
+        intro={city.localNote}
       />
 
       <EmergencySteps steps={[...service.emergencySteps]} serviceName={service.shortName} />
 
       {/* Local coverage — genuine per-city data keeps these pages unique */}
-      <section className="bg-slate-50 py-16 sm:py-20">
-        <Container className="mx-auto max-w-4xl">
-          <SectionHeader
-            eyebrow={`${city.name} Coverage`}
-            title={`${city.name} neighborhoods we serve`}
-            lede={`Crews respond to ${service.shortName.toLowerCase()} calls throughout ${city.label} — including these areas and everywhere between.`}
-          />
-          <ul className="mt-10 flex flex-wrap justify-center gap-3">
+      <section className={`py-14 text-white sm:py-16 ${color}`}>
+        <Container className="mx-auto max-w-4xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-white/80">{city.name} Coverage</p>
+          <h2 className="mt-2 font-display text-2xl font-bold tracking-tight sm:text-3xl">Neighborhoods we serve</h2>
+          <ul className="mt-7 flex flex-wrap justify-center gap-3">
             {city.neighborhoods.map((n) => (
               <li
                 key={n}
-                className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-brand-900"
+                className="flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-medium backdrop-blur"
               >
-                <MapPin aria-hidden="true" className="h-4 w-4 text-accent-600" />
+                <MapPin aria-hidden="true" className="h-4 w-4" />
                 {n}
               </li>
             ))}
@@ -91,21 +88,14 @@ export default async function ServiceCityPage({ params }: { params: Promise<Para
         </Container>
       </section>
 
-      <ProcessTimeline />
-      <InsuranceCallout />
       <ReviewsSection reviews={displayReviews} title={`Recent work near ${city.name}`} />
-      <FAQSection
-        faqs={[...service.faqs]}
-        title={`${service.shortName} in ${city.name} — common questions`}
-      />
+      <FAQSection faqs={[...service.faqs]} title={`${service.shortName} in ${city.name}`} lede="" />
 
       {/* Sibling links: crawlable lattice, useful navigation */}
       <section className="bg-white py-16 sm:py-20">
         <Container className="mx-auto max-w-4xl">
-          <h2 className="font-display text-lg font-bold text-brand-900">
-            {service.shortName} in nearby cities
-          </h2>
-          <ul className="mt-4 flex flex-wrap gap-3">
+          <SectionHeader align="left" eyebrow="Nearby" title={`${service.shortName} in other cities`} />
+          <ul className="mt-6 flex flex-wrap gap-3">
             {siblingCities.map((c) => (
               <li key={c.slug}>
                 <Link

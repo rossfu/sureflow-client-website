@@ -4,7 +4,6 @@ import { site } from "@/config/site";
 import { buildMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { LeadForm } from "@/components/forms/LeadForm";
-import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 
 export const metadata: Metadata = buildMetadata({
   title: `Emergency Service — Call Now, On-Site in ${site.responseTimeMinutes} Minutes`,
@@ -74,8 +73,6 @@ export default function EmergencyPage() {
           </div>
         </Container>
       </section>
-
-      <ProcessTimeline />
     </>
   );
 }

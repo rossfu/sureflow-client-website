@@ -20,8 +20,8 @@ export default function ServiceAreasPage() {
           { name: "Home", path: "/" },
           { name: "Service Areas", path: "/service-areas" },
         ]}
-        title={`Emergency restoration across ${site.serviceRegion}`}
-        intro={`Response time is the metric that matters in this business, so we don't cover the metro from one garage. Crews stage across the region 24/7 — pick your city to see local coverage, response notes, and neighborhood detail.`}
+        title={`We cover ${site.serviceRegion}`}
+        intro="Pick your city for local coverage and response times."
       />
       <ServiceAreasGrid />
       <StatsBand />

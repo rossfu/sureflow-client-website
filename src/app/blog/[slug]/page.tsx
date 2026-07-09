@@ -88,8 +88,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
                 Dealing with this right now?
               </h2>
               <p className="mt-2 leading-relaxed text-slate-600">
-                Our {service.name.toLowerCase()} crews respond 24/7 across the metro — with the
-                free "do this right now" checklist waiting on the service page.
+                We respond 24/7. Free checklist on the service page.
               </p>
               <Link
                 href={`/services/${service.slug}`}

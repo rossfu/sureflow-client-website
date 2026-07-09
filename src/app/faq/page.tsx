@@ -20,14 +20,11 @@ export default function FaqPage() {
           { name: "Home", path: "/" },
           { name: "FAQ", path: "/faq" },
         ]}
-        title="Fair questions, straight answers"
-        intro="Everything people ask before they call — costs, insurance, timelines, safety — answered the way we'd answer on the phone. Service-specific questions live on each service page."
+        title="Questions? Answered."
+        intro="Costs, insurance, timelines, safety — the short version."
       />
-      <FAQSection faqs={globalFaqs} title="The questions we hear on every call" lede="" />
-      <FinalCTA
-        title="Question not answered here?"
-        lede="Call and ask it. No script, no pressure — a certified tech will give you a real answer, even if the answer is 'you don't need us.'"
-      />
+      <FAQSection faqs={globalFaqs} title="Quick answers" lede="" />
+      <FinalCTA title="Question not answered here? Call and ask." lede="" />
     </>
   );
 }

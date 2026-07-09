@@ -20,8 +20,8 @@ export default function ContactPage() {
           { name: "Home", path: "/" },
           { name: "Contact", path: "/contact" },
         ]}
-        title="Call if it's urgent. Write if it can wait five minutes."
-        intro="Emergencies get a person on the phone 24/7. The form below gets a callback within 5 minutes for urgent requests — use whichever your situation allows."
+        title="Call now, or request a callback."
+        intro="A person answers 24/7. The form gets a callback in 5 minutes."
         cta={false}
       />
 
@@ -80,15 +80,13 @@ export default function ContactPage() {
               </li>
             </ul>
             <p className="mt-8 rounded-xl bg-white p-5 text-sm leading-relaxed text-slate-600 shadow-sm">
-              <strong className="text-brand-900">Active emergency?</strong> Skip the form and call.
-              Water, fire, and sewage situations get worse by the hour, and the fastest path to a
-              crew is the phone.
+              <strong className="text-brand-900">Active emergency?</strong> Skip the form. Call.
             </p>
           </div>
 
           <div>
             <h2 className="font-display text-2xl font-bold text-brand-900">Request a callback</h2>
-            <p className="mt-2 text-slate-600">Four fields. We call you — usually within 5 minutes.</p>
+            <p className="mt-2 text-slate-600">Four fields. We call you back.</p>
             <div className="mt-6">
               <LeadForm />
             </div>

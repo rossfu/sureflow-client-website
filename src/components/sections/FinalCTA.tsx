@@ -33,7 +33,7 @@ export function FinalCTA({
       />
       <Container className="relative mx-auto max-w-3xl text-center">
         <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">{title}</h2>
-        <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/75">{lede}</p>
+        {lede ? <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/75">{lede}</p> : null}
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button href={`tel:${site.phoneE164}`} size="lg" dataCta="final-cta-call">
             <Phone aria-hidden="true" className="h-5 w-5" />

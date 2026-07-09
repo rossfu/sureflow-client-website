@@ -26,8 +26,8 @@ export default function ReviewsPage() {
           { name: "Home", path: "/" },
           { name: "Reviews", path: "/reviews" },
         ]}
-        title={`${site.rating.value} stars. ${site.rating.count}+ reviews. Names and neighborhoods included.`}
-        intro="Anonymous praise isn't proof, so every review here carries a name, a neighborhood, and the service performed. This is what the work looks like from the homeowner's side of it."
+        title={`${site.rating.value} stars. ${site.rating.count}+ reviews.`}
+        intro="Real names. Real neighborhoods."
       />
 
       <section className="bg-slate-50 py-16 sm:py-20 lg:py-24">
@@ -55,10 +55,7 @@ export default function ReviewsPage() {
         </Container>
       </section>
 
-      <FinalCTA
-        title="The next review could be about your kitchen."
-        lede={`Every one of these started with the same phone call. ${site.phone} — a person answers, 24/7.`}
-      />
+      <FinalCTA title="The next review could be about your house." lede="" />
     </>
   );
 }

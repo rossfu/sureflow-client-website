@@ -23,8 +23,8 @@ export default function BlogIndexPage() {
           { name: "Home", path: "/" },
           { name: "Guides", path: "/blog" },
         ]}
-        title="Guides for the worst day your house has had"
-        intro="Written by the technicians who run these calls — what to do first, what not to touch, and how the insurance side really works. Free to use whether you ever call us or not."
+        title="Guides for a bad day"
+        intro="What to do first, written by our own technicians."
         cta={false}
       />
       <section className="bg-slate-50 py-16 sm:py-20 lg:py-24">
