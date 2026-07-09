@@ -7,15 +7,17 @@ import type { Faq } from "@/config/faqs";
  */
 export function Accordion({ items }: { items: Faq[] }) {
   return (
-    <div className="divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+    <div className="divide-y divide-slate-200 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       {items.map((item) => (
-        <details key={item.q} className="group px-6 py-5">
+        <details key={item.q} className="group px-6 py-5 transition-colors duration-200 open:bg-brand-50/40">
           <summary className="flex cursor-pointer items-center justify-between gap-4 text-left font-display text-lg font-semibold text-brand-900 marker:content-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 rounded-md">
             {item.q}
-            <ChevronDown
-              aria-hidden="true"
-              className="accordion-chevron h-5 w-5 shrink-0 text-accent-600 transition-transform duration-200"
-            />
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-50 text-accent-600 transition-colors duration-200 group-open:bg-accent-600 group-open:text-white">
+              <ChevronDown
+                aria-hidden="true"
+                className="accordion-chevron h-4 w-4 transition-transform duration-200"
+              />
+            </span>
           </summary>
           <p className="mt-3 leading-relaxed text-slate-600">{item.a}</p>
         </details>

@@ -7,10 +7,10 @@ type Size = "md" | "lg";
 const variants: Record<Variant, string> = {
   /* primary = call-to-action orange; reserved for the two site actions */
   primary:
-    "bg-accent-600 text-white hover:bg-accent-700 focus-visible:ring-accent-600 shadow-sm",
+    "bg-accent-600 text-white hover:bg-accent-700 focus-visible:ring-accent-600 shadow-md shadow-accent-600/20 hover:shadow-lg hover:shadow-accent-600/30 hover:-translate-y-0.5",
   secondary:
-    "bg-white text-brand-900 border border-slate-300 hover:border-slate-400 hover:bg-slate-50 focus-visible:ring-brand-700",
-  dark: "bg-brand-800 text-white hover:bg-brand-700 focus-visible:ring-brand-700",
+    "bg-white text-brand-900 border border-slate-300 hover:border-slate-400 hover:bg-slate-50 focus-visible:ring-brand-700 hover:-translate-y-0.5 hover:shadow-md",
+  dark: "bg-brand-800 text-white hover:bg-brand-700 focus-visible:ring-brand-700 shadow-md hover:shadow-lg hover:-translate-y-0.5",
   ghost: "text-brand-900 hover:bg-brand-50 focus-visible:ring-brand-700",
 };
 
@@ -43,7 +43,7 @@ export function Button({
 }: ButtonProps) {
   const classes = cn(
     "inline-flex items-center justify-center gap-2 rounded-lg font-semibold",
-    "transition-colors duration-200 cursor-pointer select-none",
+    "transition-all duration-200 cursor-pointer select-none",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
     "disabled:cursor-not-allowed disabled:opacity-60",
     variants[variant],

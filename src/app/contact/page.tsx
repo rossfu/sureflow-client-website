@@ -31,8 +31,8 @@ export default function ContactPage() {
             <h2 className="font-display text-2xl font-bold text-brand-900">Direct lines</h2>
             <ul className="mt-6 space-y-6">
               <li className="flex gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-900">
-                  <Phone aria-hidden="true" className="h-5 w-5 text-accent-500" />
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent-600 text-white">
+                  <Phone aria-hidden="true" className="h-5 w-5" />
                 </span>
                 <div>
                   <p className="text-sm font-medium text-slate-500">24/7 Emergency Line</p>
@@ -46,8 +46,8 @@ export default function ContactPage() {
                 </div>
               </li>
               <li className="flex gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-900">
-                  <Mail aria-hidden="true" className="h-5 w-5 text-accent-500" />
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-sky-600 text-white">
+                  <Mail aria-hidden="true" className="h-5 w-5" />
                 </span>
                 <div>
                   <p className="text-sm font-medium text-slate-500">Email (non-urgent)</p>
@@ -57,8 +57,8 @@ export default function ContactPage() {
                 </div>
               </li>
               <li className="flex gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-900">
-                  <MapPin aria-hidden="true" className="h-5 w-5 text-accent-500" />
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-emerald-600 text-white">
+                  <MapPin aria-hidden="true" className="h-5 w-5" />
                 </span>
                 <div>
                   <p className="text-sm font-medium text-slate-500">Office</p>
@@ -70,8 +70,8 @@ export default function ContactPage() {
                 </div>
               </li>
               <li className="flex gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-900">
-                  <Clock aria-hidden="true" className="h-5 w-5 text-accent-500" />
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-violet-600 text-white">
+                  <Clock aria-hidden="true" className="h-5 w-5" />
                 </span>
                 <div>
                   <p className="text-sm font-medium text-slate-500">Hours</p>

@@ -20,6 +20,8 @@ const iconMap: Record<string, LucideIcon> = {
   home: Home,
 };
 
+const chipColors = ["bg-sky-600", "bg-orange-600", "bg-emerald-600", "bg-violet-600", "bg-rose-600", "bg-cyan-700"];
+
 /** Differentiation for the comparison shopper (Mode B). */
 export function WhyUs() {
   return (
@@ -31,12 +33,13 @@ export function WhyUs() {
           lede="No jargon. Just what we actually do for you."
         />
         <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {site.whyUs.map((item) => {
+          {site.whyUs.map((item, i) => {
             const Icon = iconMap[item.icon] ?? ShieldCheck;
+            const color = chipColors[i % chipColors.length];
             return (
               <div key={item.title} className="flex gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-50">
-                  <Icon aria-hidden="true" className="h-5 w-5 text-accent-600" />
+                <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-white ${color}`}>
+                  <Icon aria-hidden="true" className="h-5 w-5" />
                 </span>
                 <div>
                   <h3 className="font-display text-lg font-bold text-brand-900">{item.title}</h3>

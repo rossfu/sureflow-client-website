@@ -20,11 +20,11 @@ export function ServiceAreasGrid() {
             <Link
               key={city.slug}
               href={`/service-areas/${city.slug}`}
-              className="group flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-[box-shadow,border-color] duration-200 hover:border-slate-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-600"
+              className="group flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-600"
             >
               <span className="flex items-center gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50">
-                  <MapPin aria-hidden="true" className="h-5 w-5 text-accent-600" />
+                <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent-600 text-white">
+                  <MapPin aria-hidden="true" className="h-5 w-5" />
                 </span>
                 <span>
                   <span className="block font-display font-bold text-brand-900">{city.label}</span>

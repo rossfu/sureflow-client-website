@@ -4,9 +4,11 @@ import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Review } from "@/config/reviews";
 import { site } from "@/config/site";
+import { getService } from "@/config/services";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { StarRating } from "@/components/ui/StarRating";
+import { serviceColor } from "@/components/ui/ServiceIcon";
 
 /**
  * Scroll-snap review rail. Cards are plain HTML; the only JS is the
@@ -60,21 +62,31 @@ export function ReviewsSection({ reviews, title = "What your neighbors say" }: {
           ref={railRef}
           className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth"
         >
-          {reviews.map((review) => (
-            <li
-              key={`${review.name}-${review.date}`}
-              className="flex w-[85%] shrink-0 snap-start flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-sm sm:w-[26rem]"
-            >
-              <StarRating rating={review.rating} />
-              <blockquote className="mt-4 flex-1 leading-relaxed text-slate-600">
-                &ldquo;{review.text}&rdquo;
-              </blockquote>
-              <footer className="mt-5 border-t border-slate-100 pt-4">
-                <p className="font-display font-bold text-brand-900">{review.name}</p>
-                <p className="text-sm text-slate-500">{review.location}</p>
-              </footer>
-            </li>
-          ))}
+          {reviews.map((review) => {
+            const service = getService(review.serviceSlug);
+            return (
+              <li
+                key={`${review.name}-${review.date}`}
+                className="flex w-[85%] shrink-0 snap-start flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg sm:w-[26rem]"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <StarRating rating={review.rating} />
+                  {service && (
+                    <span className={`rounded-full px-3 py-1 text-xs font-semibold text-white ${serviceColor[service.icon]}`}>
+                      {service.shortName}
+                    </span>
+                  )}
+                </div>
+                <blockquote className="mt-4 flex-1 leading-relaxed text-slate-600">
+                  &ldquo;{review.text}&rdquo;
+                </blockquote>
+                <footer className="mt-5 border-t border-slate-100 pt-4">
+                  <p className="font-display font-bold text-brand-900">{review.name}</p>
+                  <p className="text-sm text-slate-500">{review.location}</p>
+                </footer>
+              </li>
+            );
+          })}
         </ul>
       </Container>
     </section>

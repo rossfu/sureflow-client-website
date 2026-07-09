@@ -17,10 +17,10 @@ interface MiniHeroProps {
 /** Interior-page hero: breadcrumbs, H1, intro, CTAs, trust chips. */
 export function MiniHero({ crumbs, title, intro, cta = true, children }: MiniHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-brand-950 text-white">
+    <section className="relative overflow-hidden bg-gradient-to-br from-brand-900 via-brand-950 to-brand-950 text-white">
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(60rem_30rem_at_80%_-20%,rgba(70,104,138,0.3),transparent)]"
+        className="absolute inset-0 bg-[radial-gradient(50rem_28rem_at_85%_-15%,rgba(234,88,12,0.25),transparent),radial-gradient(40rem_24rem_at_-5%_110%,rgba(56,189,248,0.15),transparent)]"
       />
       <Container className="relative py-12 sm:py-16 lg:py-20">
         <Breadcrumbs items={crumbs} />

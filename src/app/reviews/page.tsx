@@ -7,6 +7,7 @@ import { reviewsPageSchema } from "@/lib/schema";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { StarRating } from "@/components/ui/StarRating";
+import { serviceColor } from "@/components/ui/ServiceIcon";
 import { MiniHero } from "@/components/sections/MiniHero";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
@@ -33,24 +34,29 @@ export default function ReviewsPage() {
       <section className="bg-slate-50 py-16 sm:py-20 lg:py-24">
         <Container>
           <div className="columns-1 gap-6 md:columns-2 xl:columns-3 [&>*]:mb-6">
-            {reviews.map((review) => (
-              <article
-                key={`${review.name}-${review.date}`}
-                className="break-inside-avoid rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <StarRating rating={review.rating} />
-                  <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800">
-                    {getService(review.serviceSlug)?.shortName}
-                  </span>
-                </div>
-                <blockquote className="mt-4 leading-relaxed text-slate-600">&ldquo;{review.text}&rdquo;</blockquote>
-                <footer className="mt-5 border-t border-slate-100 pt-4">
-                  <p className="font-display font-bold text-brand-900">{review.name}</p>
-                  <p className="text-sm text-slate-500">{review.location}</p>
-                </footer>
-              </article>
-            ))}
+            {reviews.map((review) => {
+              const service = getService(review.serviceSlug);
+              return (
+                <article
+                  key={`${review.name}-${review.date}`}
+                  className="break-inside-avoid rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <StarRating rating={review.rating} />
+                    {service && (
+                      <span className={`rounded-full px-3 py-1 text-xs font-semibold text-white ${serviceColor[service.icon]}`}>
+                        {service.shortName}
+                      </span>
+                    )}
+                  </div>
+                  <blockquote className="mt-4 leading-relaxed text-slate-600">&ldquo;{review.text}&rdquo;</blockquote>
+                  <footer className="mt-5 border-t border-slate-100 pt-4">
+                    <p className="font-display font-bold text-brand-900">{review.name}</p>
+                    <p className="text-sm text-slate-500">{review.location}</p>
+                  </footer>
+                </article>
+              );
+            })}
           </div>
         </Container>
       </section>
