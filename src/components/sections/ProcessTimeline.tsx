@@ -12,8 +12,8 @@ export function ProcessTimeline() {
       <Container>
         <SectionHeader
           eyebrow="What Happens When You Call"
-          title="A clear plan from the first ring"
-          lede="No mystery, no pressure. Here is exactly what the next few hours look like."
+          title="Simple. Fast. No surprises."
+          lede="Here's exactly what happens next."
         />
         <ol className="mt-14 grid gap-10 lg:grid-cols-4 lg:gap-8">
           {site.process.map((step, i) => (

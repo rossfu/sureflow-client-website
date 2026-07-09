@@ -12,8 +12,8 @@ export function ServiceAreasGrid() {
       <Container>
         <SectionHeader
           eyebrow="Where We Work"
-          title={`Crews across ${site.serviceRegion}`}
-          lede={`Staged crews and ${site.responseTimeMinutes}-minute average response times throughout the metro — because "nearby" is the whole point in an emergency.`}
+          title={`We cover ${site.serviceRegion}`}
+          lede={`Crews are close by, ready in about ${site.responseTimeMinutes} minutes.`}
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {cities.map((city) => (
@@ -39,7 +39,7 @@ export function ServiceAreasGrid() {
           ))}
         </div>
         <p className="mt-8 text-center text-sm text-slate-500">
-          Just outside these areas? Call anyway — we regularly serve surrounding communities.
+          Don't see your area? Call us anyway. We cover nearby towns too.
         </p>
       </Container>
     </section>

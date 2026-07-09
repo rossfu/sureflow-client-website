@@ -19,18 +19,17 @@ export function BeforeAfterSection() {
         <div className="order-1 lg:order-2">
           <p className="text-sm font-semibold uppercase tracking-widest text-accent-600">The Work, Not the Words</p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-900 sm:text-4xl">
-            Drag the slider. That's the whole pitch.
+            Drag the slider. See for yourself.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            Every job is photographed from first walkthrough to final coat — partly for your
-            insurance file, partly because the results speak better than we do. Browse real
-            projects from homes across {`Greater Austin`}.
+            We photograph every job, start to finish. See real results from homes across{" "}
+            {`Greater Austin`}.
           </p>
           <Link
             href="/gallery"
             className="mt-6 inline-flex items-center gap-1.5 font-semibold text-accent-600 transition-colors duration-200 hover:text-accent-700"
           >
-            See the before & after gallery
+            See more before & after photos
             <ArrowRight aria-hidden="true" className="h-4 w-4" />
           </Link>
         </div>

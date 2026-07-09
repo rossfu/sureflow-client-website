@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { withBasePath } from "@/lib/utils";
 import { site } from "@/config/site";
 import { services } from "@/config/services";
 import { cities } from "@/config/cities";
@@ -22,9 +24,7 @@ export function Footer() {
         {/* NAP block — must match Google Business Profile exactly */}
         <div>
           <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name} — home`}>
-            <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-800">
-              <ShieldCheck aria-hidden="true" className="h-6 w-6 text-accent-500" />
-            </span>
+            <Image src={withBasePath("/images/logo-mark.png")} alt="" width={40} height={40} className="h-10 w-10 rounded-lg" />
             <span className="font-display text-lg font-bold tracking-tight">{site.name}</span>
           </Link>
           <ul className="mt-6 space-y-3 text-sm text-white/70">

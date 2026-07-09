@@ -14,23 +14,21 @@ export function InsuranceCallout() {
         <div>
           <p className="text-sm font-semibold uppercase tracking-widest text-accent-600">Insurance, Handled</p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-900 sm:text-4xl">
-            You've had enough surprises today. Your claim won't be one.
+            We deal with your insurance. You don't have to.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            We work with every major carrier and bill your insurer directly. Our estimates use the
-            same software your adjuster uses, so claims move on evidence instead of arguments. And
-            to be clear about whose side we're on: <strong className="text-brand-900">we work for you, not the
-            insurance company.</strong>
+            We bill your insurer directly and send them everything they need.{" "}
+            <strong className="text-brand-900">We work for you, not the insurance company.</strong>
           </p>
           <Link
             href="/insurance"
             className="mt-6 inline-flex items-center gap-1.5 font-semibold text-accent-600 transition-colors duration-200 hover:text-accent-700"
           >
-            How the claims process works
+            How claims work
             <ArrowRight aria-hidden="true" className="h-4 w-4" />
           </Link>
           <p className="mt-8 text-sm font-medium text-slate-500">
-            Carriers we work with regularly: {site.insurers.join(" · ")} — and all others.
+            We work with: {site.insurers.join(" · ")} — and all others.
           </p>
         </div>
 
@@ -38,18 +36,18 @@ export function InsuranceCallout() {
           {[
             {
               icon: Camera,
-              title: "Everything documented",
-              body: "Photos, moisture logs, and daily readings — the evidence file your claim is built on, kept for you automatically.",
+              title: "We document everything",
+              body: "Photos and reports, kept for your claim automatically.",
             },
             {
               icon: Calculator,
-              title: "Adjuster-standard estimates",
-              body: "Itemized Xactimate scopes in the exact format carriers expect. Fewer disputes, faster approvals.",
+              title: "Estimates adjusters expect",
+              body: "Written the way your insurer needs them. Fewer disputes, faster approval.",
             },
             {
               icon: FileCheck,
-              title: "Billed direct — you pay your deductible",
-              body: "For covered losses we invoice your insurer directly. No fronting five figures and waiting on reimbursement.",
+              title: "You just pay your deductible",
+              body: "We bill your insurer directly. No fronting big money and waiting.",
             },
           ].map(({ icon: Icon, title, body }) => (
             <li key={title} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">

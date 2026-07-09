@@ -18,9 +18,9 @@ interface ServicesGridProps {
 export function ServicesGrid({
   citySlug,
   cityName,
-  eyebrow = "What We Restore",
+  eyebrow = "What We Fix",
   title = "Every disaster, one number",
-  lede = "Certified crews for the six emergencies that damage homes and businesses — with the equipment and documentation each one demands.",
+  lede = "Certified crews for all six emergencies. Pick yours below.",
 }: ServicesGridProps) {
   return (
     <section className="bg-slate-50 py-16 sm:py-20 lg:py-24">

@@ -34,7 +34,7 @@ export function ReviewsSection({ reviews, title = "What your neighbors say" }: {
             align="left"
             eyebrow="Reviews"
             title={title}
-            lede={`${site.rating.value} average across ${site.rating.count}+ Google reviews — names and neighborhoods included, because anonymous praise isn't proof.`}
+            lede={`${site.rating.value} stars from ${site.rating.count}+ real customers.`}
           />
           <div className="flex gap-2">
             <button

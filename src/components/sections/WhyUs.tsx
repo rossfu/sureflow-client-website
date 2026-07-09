@@ -27,8 +27,8 @@ export function WhyUs() {
       <Container>
         <SectionHeader
           eyebrow="Why Homeowners Choose Us"
-          title="The details that decide how this goes"
-          lede="Restoration companies all say 'fast and professional.' Here's what that actually means when it's your house."
+          title="Why people trust us"
+          lede="No jargon. Just what we actually do for you."
         />
         <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {site.whyUs.map((item) => {

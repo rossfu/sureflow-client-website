@@ -10,6 +10,7 @@ import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { InsuranceCallout } from "@/components/sections/InsuranceCallout";
 import { StatsBand } from "@/components/sections/StatsBand";
 import { WhyUs } from "@/components/sections/WhyUs";
+import { CrewSection } from "@/components/sections/CrewSection";
 import { BeforeAfterSection } from "@/components/sections/BeforeAfterSection";
 import { ReviewsSection } from "@/components/sections/ReviewsSection";
 import { ServiceAreasGrid } from "@/components/sections/ServiceAreasGrid";
@@ -37,6 +38,7 @@ export default function HomePage() {
       <InsuranceCallout />
       <StatsBand />
       <WhyUs />
+      <CrewSection />
       <BeforeAfterSection />
       <ReviewsSection reviews={[...reviews]} />
       <ServiceAreasGrid />

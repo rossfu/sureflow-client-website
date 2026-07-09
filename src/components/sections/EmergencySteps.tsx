@@ -14,7 +14,7 @@ export function EmergencySteps({ steps, serviceName }: { steps: string[]; servic
             Before We Arrive
           </p>
           <h2 className="mt-3 font-display text-2xl font-bold tracking-tight text-brand-900 sm:text-3xl">
-            Do this right now — it takes five minutes and it matters
+            Do this right now
           </h2>
           <ol className="mt-7 space-y-4">
             {steps.map((step, i) => (
@@ -27,12 +27,11 @@ export function EmergencySteps({ steps, serviceName }: { steps: string[]; servic
             ))}
           </ol>
           <p className="mt-7 border-t border-accent-200 pt-5 text-sm leading-relaxed text-slate-600">
-            Unsure about any of these? Call{" "}
+            Not sure what to do? Call{" "}
             <a href={`tel:${site.phoneE164}`} data-cta="emergency-steps" className="font-semibold text-accent-700 hover:text-accent-800">
               {site.phone}
             </a>{" "}
-            and our dispatcher will walk you through your exact {serviceName.toLowerCase()} situation
-            while the crew is en route.
+            and we'll walk you through it.
           </p>
         </div>
       </Container>

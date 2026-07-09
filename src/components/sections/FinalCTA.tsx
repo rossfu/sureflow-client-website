@@ -10,8 +10,8 @@ interface FinalCTAProps {
 
 /** Peak-end rule: the page ends on reassurance + one obvious action. */
 export function FinalCTA({
-  title = "Whatever happened, it's fixable. Start with one call.",
-  lede = `A person — not a phone tree — answers 24/7, walks you through the immediate steps, and dispatches the nearest crew. Average arrival: ${site.responseTimeMinutes} minutes.`,
+  title = "It's fixable. Call now.",
+  lede = `A real person answers 24/7 and sends a crew right away. Average arrival: ${site.responseTimeMinutes} minutes.`,
 }: FinalCTAProps) {
   return (
     <section className="relative overflow-hidden bg-brand-950 py-16 text-white sm:py-20 lg:py-24">

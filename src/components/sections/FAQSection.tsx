@@ -16,8 +16,8 @@ interface FAQSectionProps {
 /** Objection sweep + FAQPage schema from the same data. */
 export function FAQSection({
   faqs,
-  title = "Straight answers to fair questions",
-  lede = "The things people actually want to know before they call — answered the way we'd answer on the phone.",
+  title = "Questions? Here you go.",
+  lede = "The stuff people ask before they call.",
   withSchema = true,
 }: FAQSectionProps) {
   return (
