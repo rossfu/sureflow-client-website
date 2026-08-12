@@ -42,14 +42,21 @@ function Field({
  * Four fields. Every additional field costs conversions from people
  * standing in water — resist adding more.
  */
-export function LeadForm() {
+export function LeadForm({ variant = "card" }: { variant?: "card" | "bare" }) {
   const [state, formAction, isPending] = useActionState(submitLead, initialState);
   const pathname = usePathname();
   const errors = state.fieldErrors ?? {};
+  const bare = variant === "bare";
 
   if (state.status === "success") {
     return (
-      <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center" role="status">
+      <div
+        className={cn(
+          "text-center",
+          bare ? "py-4" : "rounded-2xl border border-emerald-200 bg-emerald-50 p-8",
+        )}
+        role="status"
+      >
         <CheckCircle2 aria-hidden="true" className="mx-auto h-12 w-12 text-emerald-600" />
         <h3 className="mt-4 font-display text-2xl font-bold text-brand-900">Request received.</h3>
         {/* Peak-end rule: tell them exactly what happens next */}
@@ -73,7 +80,11 @@ export function LeadForm() {
   }
 
   return (
-    <form action={formAction} noValidate className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+    <form
+      action={formAction}
+      noValidate
+      className={cn(bare ? "" : "rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8")}
+    >
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Your name" name="name" error={errors.name}>
           <input

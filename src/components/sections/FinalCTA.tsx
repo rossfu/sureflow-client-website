@@ -18,10 +18,11 @@ export function FinalCTA({
   return (
     <section className="relative overflow-hidden bg-brand-950 py-16 text-white sm:py-20 lg:py-24">
       <Image
-        src={withBasePath("/images/crew-dusk-arrival.png")}
+        src={withBasePath("/images/emergency-night.jpg")}
         alt=""
         fill
-        className="object-cover opacity-30"
+        sizes="100vw"
+        className="object-cover object-center opacity-30"
       />
       <div
         aria-hidden="true"
@@ -41,7 +42,7 @@ export function FinalCTA({
           </Button>
           <Button href="/contact" variant="dark" size="lg" dataCta="final-cta-form" className="border border-white/15">
             <MessageSquare aria-hidden="true" className="h-5 w-5" />
-            Request Help Online
+            Get a Free Estimate
           </Button>
         </div>
         <p className="mt-6 text-sm text-white/50">

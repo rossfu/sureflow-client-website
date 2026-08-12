@@ -11,9 +11,9 @@ export function BeforeAfterSection() {
       <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="order-2 lg:order-1">
           <BeforeAfterSlider
-            beforeSrc={withBasePath("/images/before-1.svg")}
-            afterSrc={withBasePath("/images/after-1.svg")}
-            beforeAlt="Living room with standing water and saturated drywall before restoration"
+            beforeSrc={withBasePath("/images/before.jpg")}
+            afterSrc={withBasePath("/images/after.jpg")}
+            beforeAlt="Living room with water damage and a crew starting cleanup before restoration"
             afterAlt="The same living room fully dried, repaired, and repainted after restoration"
           />
         </div>

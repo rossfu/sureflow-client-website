@@ -5,10 +5,10 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 
 const steps = [
-  { icon: PhoneCall, label: "You call", color: "bg-sky-500" },
-  { icon: Timer, label: `We arrive in ${site.responseTimeMinutes} min`, color: "bg-accent-500" },
-  { icon: ScanSearch, label: "We assess & document", color: "bg-emerald-500" },
-  { icon: Wrench, label: "We fix it, insurance billed", color: "bg-violet-500" },
+  { icon: PhoneCall, label: "You call" },
+  { icon: Timer, label: `We arrive in ${site.responseTimeMinutes} min` },
+  { icon: ScanSearch, label: "We assess & document" },
+  { icon: Wrench, label: "We fix it, insurance billed" },
 ];
 
 /** Site-wide "how it works" summary: one compact, colorful band. Action-first, not an explainer. */
@@ -34,22 +34,20 @@ export function HowItWorksBand() {
         </div>
 
         <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map(({ icon: Icon, label, color }, i) => (
+          {steps.map(({ icon: Icon, label }, i) => (
             <li
               key={label}
-              className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-transform duration-200 hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-colors duration-200 hover:border-accent-500/40 hover:bg-white/[0.07]"
             >
-              <span
-                aria-hidden="true"
-                className={`absolute -right-6 -top-6 h-20 w-20 rounded-full opacity-20 blur-xl ${color}`}
-              />
-              <div className="flex items-center gap-3">
-                <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-white shadow-lg ${color}`}>
+              <div className="flex items-center justify-between">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-500/15 text-accent-400 ring-1 ring-accent-500/25">
                   <Icon aria-hidden="true" className="h-6 w-6" />
                 </span>
-                <span className="font-display text-3xl font-black text-white/20">{i + 1}</span>
+                <span className="font-display text-4xl font-black tabular-nums text-white/15 transition-colors duration-200 group-hover:text-white/25">
+                  0{i + 1}
+                </span>
               </div>
-              <p className="mt-4 text-lg font-bold leading-snug text-white">{label}</p>
+              <p className="mt-5 text-lg font-bold leading-snug text-white">{label}</p>
             </li>
           ))}
         </ol>

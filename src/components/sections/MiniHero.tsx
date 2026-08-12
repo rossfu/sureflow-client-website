@@ -36,7 +36,7 @@ export function MiniHero({ crumbs, title, intro, cta = true, children }: MiniHer
             </Button>
             <Button href="/contact" variant="dark" dataCta="mini-hero-form" className="border border-white/15">
               <MessageSquare aria-hidden="true" className="h-5 w-5" />
-              Request Help Online
+              Get a Free Estimate
             </Button>
           </div>
         )}

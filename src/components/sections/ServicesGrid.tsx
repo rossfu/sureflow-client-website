@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRef } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { services } from "@/config/services";
 import { Container } from "@/components/ui/Container";
-import { ServiceIcon } from "@/components/ui/ServiceIcon";
+import { withBasePath } from "@/lib/utils";
 
 interface ServicesGridProps {
   /** When set, cards link to /services/[slug]/[citySlug] combo pages */
@@ -16,14 +17,14 @@ interface ServicesGridProps {
   lede?: string;
 }
 
-/** One color per card — a scannable, servpro-style rail instead of a wall of identical tiles. */
-const cardTheme: Record<string, { chip: string; ring: string }> = {
-  droplets: { chip: "bg-sky-600", ring: "hover:border-sky-300" },
-  flame: { chip: "bg-orange-600", ring: "hover:border-orange-300" },
-  microscope: { chip: "bg-emerald-600", ring: "hover:border-emerald-300" },
-  "cloud-lightning": { chip: "bg-violet-600", ring: "hover:border-violet-300" },
-  waves: { chip: "bg-cyan-700", ring: "hover:border-cyan-300" },
-  biohazard: { chip: "bg-rose-600", ring: "hover:border-rose-300" },
+/** Real photography per service — a scannable rail, no generic icon tiles. */
+const serviceImage: Record<string, string> = {
+  droplets: "/images/service-water.jpg",
+  flame: "/images/service-fire.jpg",
+  microscope: "/images/service-mold.jpg",
+  "cloud-lightning": "/images/service-storm.jpg",
+  waves: "/images/service-sewage.jpg",
+  biohazard: "/images/service-biohazard.jpg",
 };
 
 /**
@@ -84,23 +85,36 @@ export function ServicesGrid({
         >
           {services.map((service) => {
             const href = citySlug ? `/services/${service.slug}/${citySlug}` : `/services/${service.slug}`;
-            const theme = cardTheme[service.icon] ?? cardTheme.droplets;
+            const img = serviceImage[service.icon] ?? serviceImage.droplets;
             return (
-              <li key={service.slug} className="w-[78%] shrink-0 snap-start sm:w-[19rem]">
+              <li key={service.slug} className="w-[80%] shrink-0 snap-start sm:w-[20rem]">
                 <Link
                   href={href}
-                  className={`group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-[box-shadow,border-color] duration-200 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 ${theme.ring}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-600"
                 >
-                  <span className={`flex h-12 w-12 items-center justify-center rounded-xl text-white ${theme.chip}`}>
-                    <ServiceIcon icon={service.icon} />
-                  </span>
-                  <h3 className="mt-5 font-display text-lg font-bold text-brand-900">
-                    {cityName ? `${service.shortName} — ${cityName}` : service.shortName}
-                  </h3>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600 transition-colors duration-200 group-hover:text-accent-700">
-                    Get help now
-                    <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                  </span>
+                  <div className="relative aspect-[16/11] overflow-hidden">
+                    <Image
+                      src={withBasePath(img)}
+                      alt={service.name}
+                      fill
+                      sizes="(min-width: 640px) 20rem, 80vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-gradient-to-t from-brand-950/85 via-brand-950/10 to-transparent"
+                    />
+                    <h3 className="absolute inset-x-4 bottom-3 font-display text-lg font-bold text-white drop-shadow-sm">
+                      {cityName ? `${service.shortName} — ${cityName}` : service.shortName}
+                    </h3>
+                  </div>
+                  <div className="flex flex-1 flex-col p-5">
+                    <p className="text-sm leading-relaxed text-slate-600">{service.excerpt}</p>
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600 transition-colors duration-200 group-hover:text-accent-700">
+                      Get help now
+                      <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
                 </Link>
               </li>
             );
